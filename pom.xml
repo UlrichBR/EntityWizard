@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+   <groupId>me.ulrich.entitywizard</groupId>
+   <artifactId>EntityWizard</artifactId>
+   <name>EntityWizard</name>
+   <version>1.0.0</version>
+   <properties>
+      <java.version>17</java.version>
+   </properties>
+   <build>
+      <plugins>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.10.1</version>
+            <configuration>
+               <encoding>UTF-8</encoding>
+               <failOnError>true</failOnError>
+               <source>${java.version}</source>
+               <target>${java.version}</target>
+            </configuration>
+         </plugin>
+         <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-shade-plugin</artifactId>
+            <version>3.3.0</version>
+            <executions>
+               <execution>
+                  <phase>package</phase>
+                  <goals>
+                     <goal>shade</goal>
+                  </goals>
+                  <configuration>
+                     <relocations>
+                                <relocation>
+                                    <pattern>com.github.retrooper</pattern>
+                                    <shadedPattern>me.ulrich.entitywizard
+                                    </shadedPattern> <!--relocate packetevents package. choose something unique!-->
+                                </relocation>
+                                <relocation>
+                                    <pattern>io.github.retrooper</pattern>
+                                    <shadedPattern>me.ulrich.entitywizard
+                                    </shadedPattern> <!--relocate packetevents package. choose something unique!-->
+                                </relocation>
+
+<relocation>
+                                    <pattern>me.tofaa</pattern>
+                                    <shadedPattern>me.ulrich.entitywizard
+                                    </shadedPattern> <!--relocate packetevents package. choose something unique!-->
+                                </relocation>
+                                <relocation>
+                                    <pattern>net.kyori</pattern>
+                                    <shadedPattern>me.ulrich.entitywizard.packetevents.libs.net.kyori
+                                    </shadedPattern> <!--relocate packetevents package. choose something unique!-->
+                                </relocation>
+
+                     </relocations>
+
+                     <transformers>
+                        <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                           <mainClass>me.ulrich.entitywizard.EntityWizard</mainClass>
+                        </transformer>
+                     </transformers>
+                  </configuration>
+               </execution>
+            </executions>
+         </plugin>
+      </plugins>
+      <resources>
+         <resource>
+            <directory>src/main/resources</directory>
+            <filtering>true</filtering>
+            <includes>
+               <include>**/*.yml</include>
+            </includes>
+         </resource>
+      </resources>
+   </build>
+   <repositories>
+      <repository>
+         <id>spigot-repo</id>
+         <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+      </repository>
+<repository>
+    <id>codemc-releases</id>
+    <url>https://repo.codemc.io/repository/maven-releases/</url>
+</repository>
+<repository>
+    <id>codemc-snapshots</id>
+    <url>https://repo.codemc.io/repository/maven-snapshots/</url>
+</repository>
+<repository>
+  <id>evoke-snapshots</id>
+  <name>EvokeGames Maven</name>
+  <url>https://maven.evokegames.gg/snapshots</url>
+</repository>
+
+   </repositories>
+   
+   <dependencies>
+		<!-- COMPILE dependency -->
+		<dependency>
+			<groupId>net.kyori</groupId>
+			<artifactId>adventure-api</artifactId>
+			<version>4.17.0</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>net.kyori</groupId>
+			<artifactId>adventure-text-minimessage</artifactId>
+			<version>4.17.0</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>net.kyori</groupId>
+			<artifactId>adventure-platform-bukkit</artifactId>
+			<version>4.3.3</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>net.kyori</groupId>
+			<artifactId>adventure-text-serializer-plain</artifactId>
+			<version>4.17.0</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>net.kyori</groupId>
+			<artifactId>adventure-text-serializer-legacy</artifactId>
+			<version>4.16.0</version>
+			<scope>compile</scope>
+		</dependency>
+      <dependency>
+         <groupId>org.spigotmc</groupId>
+         <artifactId>spigot-api</artifactId>
+         <version>1.20.6-R0.1-SNAPSHOT</version>
+         <scope>provided</scope>
+      </dependency>
+<dependency>
+    <groupId>com.github.retrooper</groupId>
+    <artifactId>packetevents-spigot</artifactId>
+    <version>2.7.0</version>
+    <scope>compile</scope>
+</dependency>
+<dependency>
+    <groupId>me.tofaa.entitylib</groupId>
+    <artifactId>spigot</artifactId>
+    <version>3.0.3-SNAPSHOT</version>
+    <scope>compile</scope>
+</dependency>
+
+</dependencies>
+
+</project>
