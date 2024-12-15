@@ -1,6 +1,7 @@
 # EntityWizard
 
 This is just a plugin to manage entities using PacketEvents and EntityLib in compiled mode.
+Installation: Must be installed in the plugins root folder (not an addon or ext.)
 
 https://github.com/UlrichBR/EntityWizard/releases/latest
 
