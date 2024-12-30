@@ -8,7 +8,7 @@ https://github.com/UlrichBR/EntityWizard/releases/latest
 
 [![](https://jitpack.io/v/UlrichBR/EntityWizard.svg)](https://jitpack.io/#UlrichBR/EntityWizard)
 
-https://jitpack.io/#UlrichBR/EntityWizard/1.0.0
+https://jitpack.io/#UlrichBR/EntityWizard/1.1.0
 
 	<repositories>
 		<repository>
