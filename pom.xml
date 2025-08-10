@@ -39,7 +39,6 @@
 									<pattern>com.github.retrooper</pattern>
 									<shadedPattern>me.ulrich.entitywizard
                                     </shadedPattern>
-									<!--relocate packetevents package. choose something unique!-->
 								</relocation>
 								<relocation>
 									<pattern>io.github.retrooper</pattern>
@@ -150,3 +149,4 @@
 		</dependency>
 	</dependencies>
 </project>
+
