@@ -1,0 +1,31 @@
+name: Release Automática
+
+on:
+  push:
+    tags:
+      - 'v*' # O gatilho: dispara sempre que você criar uma tag começando com 'v' (ex: v1.0.0)
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+
+      - name: Configurar Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17' # Versão que você utiliza para compilar seus plugins
+          distribution: 'temurin'
+          cache: 'maven'
+
+      - name: Build com Maven
+        run: mvn clean package # Executa o Maven e o shade-plugin configurado no seu pom.xml
+
+      - name: Criar Release e Upload do Plugin
+        uses: softprops/action-gh-release@v1
+        with:
+          files: target/*.jar # Localiza o arquivo compilado na pasta target e anexa na Release
+          generate_release_notes: true # Gera a lista de commits automaticamente nas notas da release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Permissão automática do GitHub para criar a release
