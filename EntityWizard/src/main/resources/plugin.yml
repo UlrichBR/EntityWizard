@@ -1,0 +1,8 @@
+name: ${project.name}
+main: ${project.groupId}.${project.artifactId}
+version: ${project.version}
+author: UlrichBR
+website: https://polymart.org/team/ulrichcraft.99
+description: EntityWizard
+api-version: 1.13
+folia-supported: true
