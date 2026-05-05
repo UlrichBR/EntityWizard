@@ -3,29 +3,31 @@ name: Release Automática
 on:
   push:
     tags:
-      - 'v*' # O gatilho: dispara sempre que você criar uma tag começando com 'v' (ex: v1.0.0)
+      - 'v*'
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true # Força o uso do Node.js 24 conforme o aviso
     steps:
       - name: Checkout do código
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.1.7 # Versão atualizada
 
       - name: Configurar Java
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v4.2.1 # Versão atualizada
         with:
-          java-version: '17' # Versão que você utiliza para compilar seus plugins
+          java-version: '17' # Mantendo a versão que resolve conflitos de classe
           distribution: 'temurin'
           cache: 'maven'
 
       - name: Build com Maven
-        run: mvn clean package # Executa o Maven e o shade-plugin configurado no seu pom.xml
+        run: mvn clean package
 
       - name: Criar Release e Upload do Plugin
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2 # Atualizado para v2 que suporta Node 24
         with:
-          files: target/*.jar # Localiza o arquivo compilado na pasta target e anexa na Release
-          generate_release_notes: true # Gera a lista de commits automaticamente nas notas da release
+          files: target/*.jar
+          generate_release_notes: true
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Permissão automática do GitHub para criar a release
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
