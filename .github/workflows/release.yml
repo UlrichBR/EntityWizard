@@ -5,19 +5,23 @@ on:
     tags:
       - 'v*'
 
+# Adicione estas linhas para dar permissão de escrita
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true # Força o uso do Node.js 24 conforme o aviso
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - name: Checkout do código
-        uses: actions/checkout@v4.1.7 # Versão atualizada
+        uses: actions/checkout@v4.1.7
 
       - name: Configurar Java
-        uses: actions/setup-java@v4.2.1 # Versão atualizada
+        uses: actions/setup-java@v4.2.1
         with:
-          java-version: '17' # Mantendo a versão que resolve conflitos de classe
+          java-version: '17'
           distribution: 'temurin'
           cache: 'maven'
 
@@ -25,7 +29,7 @@ jobs:
         run: mvn clean package
 
       - name: Criar Release e Upload do Plugin
-        uses: softprops/action-gh-release@v2 # Atualizado para v2 que suporta Node 24
+        uses: softprops/action-gh-release@v2
         with:
           files: target/*.jar
           generate_release_notes: true
