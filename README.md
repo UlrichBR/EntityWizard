@@ -8,6 +8,11 @@ https://github.com/UlrichBR/EntityWizard/releases/latest
 
 [![](https://jitpack.io/v/UlrichBR/EntityWizard.svg)](https://jitpack.io/#UlrichBR/EntityWizard)
 
+
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.ulrichbr/UltimateClans?color=blue&label=Maven%20Central)](https://central.sonatype.com/artifact/io.github.ulrichbr/UltimateClans)
+[![JitPack](https://jitpack.io/v/UlrichBR/UClans-API.svg)](https://jitpack.io/#UlrichBR/UClans-API)
+[![Java Version](https://img.shields.io/badge/Java-17%20%2F%2021-orange?logo=openjdk)](https://pom.xml)
+
 https://jitpack.io/#UlrichBR/EntityWizard/1.5.0
 
 	<repositories>
