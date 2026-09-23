@@ -13,7 +13,7 @@ https://github.com/UlrichBR/EntityWizard/releases/latest
 [![JitPack](https://jitpack.io/v/UlrichBR/UClans-API.svg)](https://jitpack.io/#UlrichBR/UClans-API)
 [![Java Version](https://img.shields.io/badge/Java-17%20%2F%2021-orange?logo=openjdk)](https://pom.xml)
 
-https://jitpack.io/#UlrichBR/EntityWizard/1.5.0
+https://jitpack.io/#UlrichBR/EntityWizard/
 
 	<repositories>
 		<repository>
@@ -25,5 +25,5 @@ https://jitpack.io/#UlrichBR/EntityWizard/1.5.0
  	<dependency>
 	    <groupId>com.github.UlrichBR</groupId>
 	    <artifactId>EntityWizard</artifactId>
-	    <version>1.5.0</version>
+	    <version>VERSION</version>
 	</dependency>
