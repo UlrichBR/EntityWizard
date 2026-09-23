@@ -24,7 +24,6 @@ public class EntityWizard  extends JavaPlugin{
        
         .kickOnPacketException(false)
                 .checkForUpdates(false);
-        
         PacketEvents.getAPI().load();
     
 
